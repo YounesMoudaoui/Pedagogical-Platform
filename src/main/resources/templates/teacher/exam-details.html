@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détails de l'examen</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+  <h2 th:text="'Détails de l\'examen: ' + ${exam.examName}"></h2>
+  <p><strong>Description:</strong> <span th:text="${exam.description}"></span></p>
+  <p><strong>Date:</strong> <span th:text="${#dates.format(exam.date, 'yyyy-MM-dd')}"></span></p>
+
+  <!-- Lien pour télécharger ou afficher le PDF -->
+  <p><strong>Fichier PDF:</strong> <a th:href="@{'/uploads/' + ${exam.pdfFileName}}" target="_blank" class="btn btn-primary">Voir le PDF</a></p>
+
+  <a th:href="@{'/teachers/courses/' + ${courseId}+'/exams'}" class="btn btn-secondary">Retour aux examens</a>
+</div>
+</body>
+</html>

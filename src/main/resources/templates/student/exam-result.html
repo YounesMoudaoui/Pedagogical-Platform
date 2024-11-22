@@ -1,0 +1,23 @@
+
+
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultat de l'examen</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Résultat de l'examen</h2>
+    <p><strong>Nom de l'examen:</strong> <span th:text="${exam.examName}"></span></p>
+    <p><strong>Description:</strong> <span th:text="${exam.description}"></span></p>
+    <p><strong>Nombre total de questions:</strong> <span th:text="${totalQuestions}"></span></p>
+    <p><strong>Nombre de réponses correctes:</strong> <span th:text="${correctAnswers}"></span></p>
+    <p><strong>Score obtenu:</strong> <span th:text="${score}"></span>%</p>
+
+    <a th:href="@{'/students/dashboard'}" class="btn btn-primary">Retour au tableau de bord</a>
+</div>
+</body>
+</html>

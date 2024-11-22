@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <title>eLEARNING</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+  <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+  <link th:href="@{https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap}" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css}" rel="stylesheet">
+  <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css}" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link th:href="@{/lib/animate/animate.min.css}" rel="stylesheet">
+  <link th:href="@{/lib/owlcarousel/assets/owl.carousel.min.css}" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+  <a th:href="@{'/teachers/dashboard'}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+    <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eLEARNING</h2>
+  </a>
+  <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto p-4 p-lg-0">
+      <a th:href="@{'/teachers/dashboard'}" class="nav-item nav-link ">Home</a>
+      <a th:href="@{'/teachers/courses'}" class="nav-item nav-link active">Courses</a>
+
+    </div>
+    <a th:href="@{'/logout'}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Logout<i class="fa fa-arrow-right ms-3"></i></a>
+  </div>
+</nav>
+<!-- Navbar End -->
+
+
+
+<!-- Service Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <section class="popular-course-area section-gap">
+      <div class="container-fluid">
+        <div class="table-responsive custom-table-responsive">
+          <h2>Résultats des examens pour le cours: <span th:text="${title}"></span></h2>
+          <table class="table table-striped table-hover table-bordered align-middle custom-table">
+            <thead>
+            <tr>
+
+              <th scope="col">ID</th>
+              <th scope="col">Nom de l'examen</th>
+              <th scope="col">Nom de l'etudiant</th>
+              <th scope="col">Score</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="result : ${results}">
+              <td th:text="${result.exam.id}"></td>
+              <td th:text="${result.exam.examName}"></td>
+              <td th:text="${result.student.username}"></td>
+              <td th:text="${result.score}"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<!-- Service End -->
+
+
+
+
+<!-- JavaScript Libraries -->
+<script th:src="@{https://code.jquery.com/jquery-3.4.1.min.js}"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/lib/wow/wow.min.js}"></script>
+<script th:src="@{/lib/easing/easing.min.js}"></script>
+<script th:src="@{/lib/waypoints/waypoints.min.js}"></script>
+<script th:src="@{/lib/owlcarousel/owl.carousel.min.js}"></script>
+
+<!-- Template Javascript -->
+<script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>

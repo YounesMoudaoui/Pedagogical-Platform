@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soumission réussie</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <!-- Success alert for exam submission -->
+    <div class="alert alert-success">
+        <h4>Examen soumis avec succès !</h4>
+        <p>Votre score a été enregistré pour l'examen :
+            <strong th:text="${result.exam.examName}">Nom de l'examen</strong>.
+        </p>
+    </div>
+
+    <!-- Navigation buttons for returning to exams or viewing results -->
+    <div>
+        <a th:href="@{'/students/courses/' + ${courseId} + '/exams'}"
+           class="btn btn-primary">Retour aux examens</a>
+        <a th:href="@{'/students/results'}"
+           class="btn btn-secondary">Voir mes résultats</a>
+    </div>
+</div>
+
+<!-- Optional: Bootstrap JS for interactive components (if needed) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
